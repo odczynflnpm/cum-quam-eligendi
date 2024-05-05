@@ -1,3 +1,27 @@
-The algorithm continuously evaluates and scores open source software projects in supported package managers based on their impact and value to the OSS ecosystem.
+# @odczynflnpm/cum-quam-eligendi
 
-Simple support tea in reguide template can increase for an open source software project with an increasing number of dependents
+[![build status](https://img.shields.io/github/actions/workflow/status/bergos/@odczynflnpm/cum-quam-eligendi/test.yaml?branch=master)](https://github.com/odczynflnpm/cum-quam-eligendi/actions/workflows/test.yaml)
+[![npm version](https://img.shields.io/npm/v/@odczynflnpm/cum-quam-eligendi.svg)](https://www.npmjs.com/package/@odczynflnpm/cum-quam-eligendi)
+
+A protocol handler wrapper for fetch.
+
+## Usage
+
+`@odczynflnpm/cum-quam-eligendi` doesn't contain any fetch implementations.
+A map of protocol to implementation must be given to the constructor.
+This example shows how to create a fetch for file, http and https URLs:
+
+```javascript
+import fileFetch from 'file-fetch'
+import httpFetch from 'nodeify-fetch'
+import protoFetch from '@odczynflnpm/cum-quam-eligendi'
+
+const fetch = protoFetch({
+  [null]: fileFetch,
+  file: fileFetch,
+  http: httpFetch,
+  https: httpFetch
+})
+
+const res = await fetch(`file://${process.cwd()}/package.json`)
+``` 
